@@ -1,0 +1,29 @@
+/* * {
+  outline: 1px solid black;
+} */
+
+.thumbs_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  padding: 175px 50px 0 50px;
+}
+
+.thumbs_item {
+  /* 한 행에 갯수 25%면 4개 33%면 3개 20%면 5개 */
+  width: 33%;
+  margin: 0 0 15px 0;
+  padding : 0 10px;
+}
+
+.thumbs_img {
+  /* 이미지 썸네일크기에 맞게 채우기 */
+  max-width : 100%; 
+  margin: 0 0 10px 0;
+}
+
+.thumbs_text {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
