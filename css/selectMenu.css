@@ -1,5 +1,6 @@
 section {
-  background-color: yellow;
+  background-image: url('/img/track.jpg');
+  background-size: cover;
   width: 100%;
   height: 600px;
 }
@@ -21,7 +22,7 @@ section {
 }
 
 .menu {
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255, 0.5);
   margin: 0 100px;
   padding: 20px;
   width: 800px;
@@ -31,4 +32,13 @@ section {
 .menu_title {
   margin-top: 50px;
   font-size: 1.2rem;
+}
+
+.borad_cate {
+  margin-top: 10px;
+}
+
+.borad_cate>a {
+  text-decoration: none;
+  color: initial;
 }
