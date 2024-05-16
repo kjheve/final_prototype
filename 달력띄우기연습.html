@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>달력 입력 폼</title>
+  <!-- Date Range Picker CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <!-- Date Range Picker JavaScript -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <h2>기간 선택</h2>
+  <form action="/submit" method="post">
+    <label for="daterange">기간 : </label>
+    <input type="text" id="daterange" name="daterange" required>
+    <br><br>
+    <!-- 며칠 선택 -->
+    <label for="duration">여행기간 : </label>
+    <input type="text" id="duration" name="duration" readonly>
+    <br><br>
+    <!-- 각 날짜마다 시작시간과 종료시간 입력 -->
+    <div id="timeSlots">
+      <!-- 여기에 각 날짜의 시작시간과 종료시간 입력 필드가 자동으로 생성됩니다. -->
+    </div>
+    <br><br>
+    <button type="submit">제출</button>
+  </form>
+
+  <script>
+    // ★--- 기간선택 Script --------------------------------------------------------
+    $(document).ready(function () {
+      // Date Range Picker 초기화
+      $('#daterange').daterangepicker({
+        locale: {
+          format: 'YYYY-MM-DD'
+        },
+        opens: 'left'
+      }, function (start, end, label) {
+        // 선택한 날짜 범위 계산하여 '며칠'인지 텍스트 필드에 입력
+        var startDate = moment(start);
+        var endDate = moment(end);
+        var diff = endDate.diff(startDate, 'days') + 1; // 시작일과 종료일 포함하여 계산
+
+        if (diff > 5) { // 여행 기간이 5일을 초과하는 경우
+          alert("총 여행 기간은 5일까지만 선택할 수 있습니다. 다시 선택해주세요.");
+          // 달력을 초기화하여 다시 선택하도록 함
+          $('#daterange').data('daterangepicker').setStartDate(moment());
+          $('#daterange').data('daterangepicker').setEndDate(moment());
+          openCalendar();
+          return;
+        }
+
+        $('#duration').val(`${diff - 1}박 ${diff}일`);
+
+        // 각 날짜마다 시작시간과 종료시간 입력 필드 생성
+        var timeSlots = $('#timeSlots');
+        timeSlots.empty(); // 기존에 생성된 입력 필드 초기화
+
+        for (var date = startDate; date <= endDate; date.add(1, 'days')) {
+          var dateString = date.format('YYYY-MM-DD');
+          var startTimeId = 'start-time-' + dateString;
+          var endTimeId = 'end-time-' + dateString;
+
+          timeSlots.append('<label for="' + startTimeId + '">' + dateString + ' 시작시간 : </label>');
+          timeSlots.append('<input type="time" id="' + startTimeId + '" name="' + startTimeId + '" value="10:00" required>');
+          timeSlots.append('<label for="' + endTimeId + '">' + ' / 종료시간 : </label>');
+          timeSlots.append('<input type="time" id="' + endTimeId + '" name="' + endTimeId + '" value="22:00" required><br><br>');
+        }
+      });
+
+      // 달력 열기함수
+      function openCalendar() {
+        setTimeout(function () {
+          $('#daterange').click();
+        }, 100); // 100ms 딜레이
+      }
+      // 페이지 로드 후 자동으로 달력 열기
+      openCalendar();
+    });
+    // ★--- 기간선택 Script종료 --------------------------------------------------------
+
+
+  </script>
+</body>
+
+</html>
