@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>여행플래너 관리</title>
+  <title>나의 여행일정</title>
   <link href="css/reset.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
   <link href="css/footer.css" rel="stylesheet">
@@ -18,11 +18,19 @@
         <a href="Main링크"><img src="img/logo.png" alt="로고"></a>
       </div>
       <div class="header_center">
-        <p class="title_name">마이페이지</p>
+        <p class="title_name">나의 여행일정</p>
       </div>
       <ul class="nav">
-        <a class="user_edit" href="회원수정.html">회원수정</a>
-        <a class="user_del" href="회원탈퇴??">회원탈퇴</a>
+        <a class="reco" href="#">여행지 검색</a>
+        <li class="dropdown">
+          <a class="mypage" href="#">마이페이지</a>
+            <ul class="dropdown_content">
+              <li><a class="myplan" href="#">나의 여행일정</a></li>
+              <li><a class="info_edit" href="#">나의 정보수정</a></li>
+            </ul>
+        </li>
+        <a class="login" href="#">로그인</a>
+        <a class="logout" href="#">로그아웃</a>
       </ul>
     </div>
   </div>
