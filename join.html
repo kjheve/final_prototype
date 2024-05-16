@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/footer.css" rel="stylesheet">
+  <link href="css/join.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="header_wrapper">
+      <div class="header_start">
+        <a href="#"><img src="img/logo.png" alt="로고"></a>
+      </div>
+      <div class="header_center">
+        <p class="title_name">회원가입</p>
+      </div>
+      <ul class="nav">
+        <a class="reco" href="#">여행지 검색</a>
+        <li class="dropdown">
+          <a class="mypage" href="#">마이페이지</a>
+          <ul class="dropdown_content">
+            <li><a class="myplan" href="#">나의 여행일정</a></li>
+            <li><a class="info_edit" href="#">나의 정보수정</a></li>
+          </ul>
+        </li>
+        <a class="login" href="#">로그인</a>
+        <a class="logout" href="#">로그아웃</a>
+      </ul>
+    </div>
+  </div>
+
+  <section>
+    <!-- 약관 -->
+    <div class="provision">
+      <div class="provision_wrapper">
+        <div class="checkmsg all">
+          <input type="checkbox" name="">
+          <label for="">전체 동의하기</label>
+        </div>
+        <textarea name="" id="" readonly>
+여러분을 환영합니다.
+트래블메이커를 이용해주셔서 감사합니다.
+어쩌구저쩌구 설명
+        </textarea>
+        <div class="checkmsg essential">
+          <input type="checkbox" name="">
+          <label for="">[필수] 트래블 메이커 이용약관</label>
+        </div>
+        <textarea name="" id="" readonly>
+개인정보보호법에 따라 트래블메이커에 회원가입 신청하시는 분께 수집하는 어쩌구저쩌구. 뭐라작성할지는 상의
+        </textarea>
+        <div class="checkmsg essential">
+          <input type="checkbox" name="">
+          <label for="">[필수] 개인정보 수집 및 이용</label>
+        </div>
+        <textarea name="" id="" readonly>
+개인정보보호법에 따라 트래블메이커에 회원가입 신청하시는 분께 수집하는 어쩌구저쩌구.
+여기 구석에 붙여야 이쁘게 됨
+        </textarea>
+        <div class="checkmsg choice">
+          <input type="checkbox" name="">
+          <label for="">[선택] 실명 인증된 아이디로 가입</label>
+        </div>
+      </div>
+    </div> <!-- 약관 끝 -->
+    <!-- 회원가입화면 -->
+    <div class="join">
+
+      <div class="join_wrapper">
+        <form action="" method="">
+          <div class="user user_id">
+            <div><label for="">아이디</label></div>
+            <input type="text" name="" />
+            <input class="btnck" type="button" value="중복체크">
+          </div>
+          <div class="user user_email">
+            <div><label for="">이메일</label></div>
+            <input type="email" name="" />
+            <input class="btnck" type="button" value="중복체크">
+          </div>
+          <div class="user user_pw">
+            <div><label for="">비밀번호</label></div>
+            <input type="password" name="" />
+          </div>
+          <div class="user user_pw_check">
+            <div><label for="">비밀번호 확인</label></div>
+            <input type="password" name="" />
+          </div>
+          <div class="user user_nickname">
+            <div><label for="">닉네임</label></div>
+            <input type="text" name="" />
+            <input class="btnck" type="button" value="중복체크">
+          </div>
+          <div class="user user_address">
+            <div><label for="">주소</label></div>
+            <input type="text" name="" />
+          </div>
+
+          <div class="form_center">
+            <div class="user user_birth">
+              <div><label for="">생년월일</label></div>
+              <input type="date" name="" />
+            </div>
+            <div class="user user_phone">
+              <div><label for="">휴대폰번호</label></div>
+              <input type="text" name="" />
+            </div>
+          </div>
+
+          <div class="user gender">
+            <input type="radio" name="gender" checked />
+            <label for="">여성</label>
+            <input type="radio" name="gender" />
+            <label for="">남성</label>
+          </div>
+          <div class="checkmsg essential">
+            <input type="checkbox">
+            <label for="">[필수] 인증약관 동의</label>
+          </div>
+          <div class="submit_btn">
+            <input type="submit" value="회원가입">
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer_main">
+      <p>트래블메이커</p>
+      <p>주소: 울산광역시 남구 삼산로35번길 19 (신정동) </p>
+      <p>Tel : 052-123-5678</p>
+    </div>
+    <!-- 푸터_카피라이트 -->
+    <div class="footer_copyright">
+      <p>Copyright © TravelMaker. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 체크박스 변수 --------------------------------------------------------------------------------
+    const $allCheckbox = document.querySelector('.checkmsg.all input[type="checkbox"]');         // 전체선택 체크박스
+    const $checkboxes = document.querySelectorAll('.checkmsg:not(.all) input[type="checkbox"]'); // 전체선택빼고 체크박스
+
+    // "전체 동의하기" 체크박스 클릭 시 모든 체크박스 선택/해제
+    $allCheckbox.addEventListener('change', () => {
+      $checkboxes.forEach((checkbox) => {
+        checkbox.checked = $allCheckbox.checked;
+      });
+    });
+    // ------------------------------------------체크박스 끝--------------------------------------------
+    const $essentialCheckboxes = document.querySelectorAll('.checkmsg.essential input[type="checkbox"]');     // 필수 약관 체크박스 요소들
+    const $submitButton = document.querySelector('.submit_btn>input[type="submit"]');                        // 제출 버튼
+
+    // "전체 동의하기" 체크박스 클릭 시 모든 체크박스 선택/해제
+    $allCheckbox.addEventListener('change', () => {
+      $checkboxes.forEach((checkbox) => {
+        checkbox.checked = $allCheckbox.checked;
+      });
+      updateSubmitButtonStatus(); // 모든 체크박스 상태 변경 후 회원가입 버튼 상태 업데이트
+    });
+
+    // 필수 체크박스 상태 변경 시 실행될 함수
+    function updateSubmitButtonStatus() {
+      let allEssentialsChecked = true; // 모든 필수 체크박스가 체크되었는지 여부 초기화
+      $essentialCheckboxes.forEach((checkbox) => {
+        // 하나라도 체크되지 않았다면 allEssentialsChecked를 false로 설정
+        if (!checkbox.checked) {
+          allEssentialsChecked = false;
+        }
+      });
+
+      // 모든 필수 체크박스가 체크되었다면 회원가입 버튼 활성화, 아니면 비활성화
+      $submitButton.disabled = !allEssentialsChecked;
+    }
+
+    // 모든 필수 체크박스에 대해 change 이벤트 리스너 추가
+    $essentialCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateSubmitButtonStatus);
+    });
+
+    // 페이지 로딩 시 한 번 실행하여 초기 상태 반영
+    updateSubmitButtonStatus();
+    // ------------------------------------------회원가입버튼 활성화 끝--------------------
+    
+
+  </script>
+</body>
+
+</html>
