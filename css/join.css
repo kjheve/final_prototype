@@ -129,6 +129,6 @@ input[type="date"] {
   cursor: initial;
 }
 
-.submit_btn>input[type="submit"]:hover {
+.submit_btn>input[type="submit"]:not(:disabled):hover {
   background-color: rgb(71, 128, 234);
 }
