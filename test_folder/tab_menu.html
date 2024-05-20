@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세로축 탭 메뉴</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .tabs {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    .tab-link {
+      padding: 15px;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      border: none;
+      outline: none;
+      text-align: left;
+      transition: background-color 0.3s;
+    }
+
+    .tab-link:hover {
+      background-color: #ddd;
+    }
+
+    .tab-link.active {
+      background-color: #ccc;
+    }
+
+    .tab-content {
+      flex: 1;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-left: none;
+      height: 95%;
+      /* overflow-y: auto; */
+    }
+
+    .tab-pane {
+      display: none;
+      height: 100%;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-link active" onclick="openTab(event, 'tab1')">탭 1</button>
+      <button class="tab-link" onclick="openTab(event, 'tab2')">탭 2</button>
+      <button class="tab-link" onclick="openTab(event, 'tab3')">탭 3</button>
+    </div>
+    <div class="tab-content">
+      <div id="tab1" class="tab-pane active">
+        <h2>탭 1 콘텐츠</h2>
+        <p>여기에 탭 1의 내용이 들어갑니다.</p>
+      </div>
+      <div id="tab2" class="tab-pane">
+        <h2>탭 2 콘텐츠</h2>
+        <p>여기에 탭 2의 내용이 들어갑니다.</p>
+      </div>
+      <div id="tab3" class="tab-pane">
+        <h2>탭 3 콘텐츠</h2>
+        <p>여기에 탭 3의 내용이 들어갑니다.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function openTab(event, tabId) {
+      var i, tabPane, tabLink;
+
+      // 모든 탭 내용을 숨기기
+      tabPane = document.getElementsByClassName("tab-pane");
+      for (i = 0; i < tabPane.length; i++) {
+        tabPane[i].style.display = "none";
+      }
+
+      // 모든 탭 링크에서 active 클래스를 제거하기
+      tabLink = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tabLink.length; i++) {
+        tabLink[i].className = tabLink[i].className.replace(" active", "");
+      }
+
+      // 현재 탭 내용 보여주기
+      document.getElementById(tabId).style.display = "block";
+
+      // 현재 탭 링크에 active 클래스 추가하기
+      event.currentTarget.className += " active";
+    }
+
+    // 기본적으로 첫 번째 탭을 열기
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".tab-link").click();
+    });
+  </script>
+</body>
+
+</html>
