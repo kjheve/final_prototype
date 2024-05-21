@@ -15,15 +15,20 @@
 }
 
 .category {
-  width: 50%;
-  margin-right: 100px;
+  width: 600px;
+  margin-right: 50px;
+  position: relative;
+}
+
+.category_fixed {
+  position: fixed;
 }
 
 /* --- 검색창 --- */
 
 .search_box {
   display: flex;
-  width: 80%;
+  width: 70%;
 }
 
 .input_text {
@@ -80,17 +85,19 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  padding-left: 80px;
 }
+
 .travel_item {
-  padding: 20px 30px;
-  /* width: 25%; */
+  padding: 30px 40px;
 }
+
 .travel_img {
   position: relative;
 }
 
 .overlay {
-  position:absolute;
+  position: absolute;
   width: 200px;
   height: 200px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -106,6 +113,7 @@
   opacity: 1;
   cursor: pointer;
 }
+
 .img {
   width: 200px;
   height: 200px;
@@ -117,6 +125,7 @@
   align-items: center;
   margin-top: 10px;
   font-weight: bold;
+  width: 200px;
 }
 
 
@@ -125,23 +134,31 @@
 .category_wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 100%;
-  max-height: 80%;
+  width: 430px;
+  height: 450px;
   background-color: rgb(230, 230, 230);
-  padding: 30px;
+  padding: 20px;
 }
 
-.city {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  justify-content: center;
-  align-content: center;
+.city_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
 }
 
-.city>p {
-  text-align: center;
+.city div>p,
+.travel_type>p {
+  padding: 5px;
+}
+
+.city div>p:hover,
+.travel_type>p:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  color: #fff;
 }
 
 .dash {
@@ -152,22 +169,35 @@
 .category_top {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.category_center,
-.category_bottom {
-  margin: 20px 0;
+.category_center {
+  height: 290px;
 }
+
+.category_bottom {}
 
 .travel_type {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  justify-content: center;
-  align-content: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+
 }
 
 .travel_type>p {
   text-align: center;
+}
+
+.refresh_btn {
+  background-color: cornflowerblue;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.refresh_btn:hover {
+  cursor: pointer;
+  background-color: rgb(68, 125, 231);
 }
