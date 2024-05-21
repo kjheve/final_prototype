@@ -5,18 +5,25 @@
   height: 100%;
 }
 
-.travel {
+.travel_search {
   width: 100%;
   margin-right: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.category {
+  width: 50%;
+  margin-right: 100px;
 }
 
 /* --- 검색창 --- */
 
 .search_box {
   display: flex;
+  width: 80%;
 }
 
 .input_text {
@@ -32,8 +39,16 @@
   width: 60px;
   height: 40px;
   border: 1px solid #8f8f8f;
+  background-color: cornflowerblue;
   border-left: none;
   border-radius: 0 2px 2px 0;
+  color: white;
+  font-weight: bold;
+}
+
+.input_button:hover {
+  background-color: rgb(68, 125, 231);
+  cursor: pointer;
 }
 
 /* ------ */
@@ -61,47 +76,58 @@
 
 /* --------travel_item----------- */
 
-.travel_item {
+.travel_list {
   display: flex;
-  padding: 10px 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.travel_item {
+  padding: 20px 30px;
+  /* width: 25%; */
+}
+.travel_img {
+  position: relative;
 }
 
+.overlay {
+  position:absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 1s;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 200px;
+}
+
+.overlay:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 .img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .travel_detail {
-  margin: 0 30px;
-}
-
-.travel_name {
-  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
-.travel_loc {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-}
-
-.detail {
-  margin-bottom: 10px;
-}
 
 /* ---------오른쪽영역---------- */
-.category {
-  width: 50%;
-  margin-right: 100px;
-}
 
 .category_wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
-  height: 50%;
+  max-height: 80%;
   background-color: rgb(230, 230, 230);
   padding: 30px;
 }

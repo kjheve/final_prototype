@@ -2,6 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 html,
 body,
@@ -141,3 +143,7 @@ table {
 	outline: none;
 }
 
+/* body {
+	font-family: "Noto Serif KR", serif;
+	font-weight: bold;
+} */
