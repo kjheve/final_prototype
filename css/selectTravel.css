@@ -14,36 +14,48 @@
   width: 25%;
   margin: 0 0 15px 0;
   padding : 50px 60px;
+  position: relative;
+}
 
+.overlay {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 1s;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 200px;
+  border-radius: 3%;
+}
+
+.overlay:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .thumbs_img {
-  /* 이미지 썸네일크기에 맞게 채우기 */
-  /* position: absolute; */
-  max-width : 100%; 
+  max-width : 300px; 
+  height: 200px;
   margin: 0 0 10px 0;
   border-radius: 3%;
-  filter: drop-shadow(2px 2px 2px #2b3b49)
+  box-shadow: 2px 2px 2px #2b3b49;
+  cursor: pointer;
 }
-.thumbs_img img:hover {
+/* .thumbs_img img:hover {
   transform: scale(1.2, 1.2); transition-duration: 0.5s;
 }
 .thumbs_img img {
   transition-duration: 0.3s;
-}
+} */
 
 .thumbs_text {
   text-align: left;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: Regular;
-  font-family: Jua;
   padding: 10px 0 20px 20px;
-}
-
-@media (max-width: 1199px) {
-  .thumbs_item {
-    width: 33.3333%; /* 한 줄에 3개 */
-  }
 }
 
 @media (max-width: 899px) {
